@@ -49,3 +49,25 @@ jobs:
       - name: Main branch message
         if: github.ref == 'refs/head/main'
         run: echo "This workflow has triggered from main"
+
+  package:
+    needs:
+      - test
+      - syntax-check
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create package
+        run: |
+          mkdir -p dist
+          tar -czf dist/cloudmart.tar.gz app.py
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudmart-package
+          path: dist/cloudmart.tar.gz
