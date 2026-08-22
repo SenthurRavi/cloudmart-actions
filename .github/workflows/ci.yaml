@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: Checking out repository
+        uses: actions/checkout@v4
+
       - name: Say hello
         run: echo "CloudMart CI has started"
 
