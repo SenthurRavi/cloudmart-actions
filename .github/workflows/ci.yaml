@@ -11,5 +11,5 @@ jobs:
       - name: Say hello
         run: echo "CloudMart CI has started"
 
-      - name: Show operating system
-        run: uname -a
+      - name: Run tests
+        run: python3 -m pytest
