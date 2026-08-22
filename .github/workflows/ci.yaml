@@ -40,12 +40,12 @@ jobs:
       APP_ENV: ci
 
     steps:
-      -name: Show Environment
-       run: echo "Environment is $APP_ENV"
+      - name: Show Environment
+        run: echo "Environment is $APP_ENV"
 
-      -name: Show Git commit
-       run: echo "Commit is ${{ github.sha }}"
+      - name: Show Git commit
+        run: echo "Commit is ${{ github.sha }}"
 
-      -name: Main branch message
-       if: github.ref == 'refs/head/main'
-       run: echo "This workflow has triggered from main"
+      - name: Main branch message
+        if: github.ref == 'refs/head/main'
+        run: echo "This workflow has triggered from main"
