@@ -22,3 +22,13 @@ jobs:
 
       - name: Run tests
         run: python -m pytest
+  
+  syntax-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check Python syntax
+        run: python3 -m py_compile app.py
