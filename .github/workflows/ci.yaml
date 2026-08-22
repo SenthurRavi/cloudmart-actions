@@ -1,0 +1,15 @@
+name: CloudMart CI
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say hello
+        run: echo "CloudMart CI has started"
+
+      - name: Show operating system
+        run: uname -a
