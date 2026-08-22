@@ -32,3 +32,20 @@ jobs:
 
       - name: Check Python syntax
         run: python3 -m py_compile app.py
+
+  info:
+    runs-on: ubuntu-latest
+
+    env:
+      APP_ENV: ci
+
+    steps:
+      -name: Show Environment
+       run: echo "Environment is $APP_ENV"
+
+      -name: Show Git commit
+       run: echo "Commit is ${{ github.sha }}"
+
+      -name: Main branch message
+       if: github.ref == 'refs/head/main'
+       run: echo "This workflow has triggered from main"
