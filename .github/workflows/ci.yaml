@@ -77,7 +77,7 @@ jobs:
       - test
       - syntax-check
 
-    runs-on: ubunut-latest
+    runs-on: ubuntu-latest
    
     env: 
       IMAGE_NAME: cloudmart-api
