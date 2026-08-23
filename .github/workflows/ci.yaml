@@ -81,6 +81,7 @@ jobs:
    
     env: 
       IMAGE_NAME: cloudmart-api
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -90,5 +91,5 @@ jobs:
            echo "Building docker image:"
            docker build -t $IMAGE_NAME:${{ github.sha }} .
      
-       - name: Show Docker image
-         run: docker image ls $IMAGE_NAME
+      - name: Show Docker image
+        run: docker image ls $IMAGE_NAME
