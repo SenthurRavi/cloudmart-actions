@@ -71,3 +71,24 @@ jobs:
         with:
           name: cloudmart-package
           path: dist/cloudmart.tar.gz
+
+  docker-build:
+    needs:
+      - test
+      - syntax-check
+
+    runs-on: ubunut-latest
+   
+    env: 
+      IMAGE_NAME: cloudmart-api
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build docker image
+        run: |
+           echo "Building docker image:"
+           docker build -t $IMAGE_NAME:${{ github.sha }} .
+     
+       - name: Show Docker image
+         run: docker image ls $IMAGE_NAME
