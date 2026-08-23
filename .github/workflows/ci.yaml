@@ -93,27 +93,3 @@ jobs:
      
       - name: Show Docker image
         run: docker image ls $IMAGE_NAME
-
-  
-name: AWS Authentication Test
-
-on: 
-  workflow_dispatch
-
-permission:
-  contents: read
-  id-token: write
-
-jobs:
-  aws-auth:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Configure AWS Credentials
-       uses: aws-actions/configure-aws-credentials@v5
-       with:
-          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
-          aws-region: ${{ vars.AWS_REGION }}
-
-      - name: Verify AWS Identity
-       run: aws sts get-caller-identity
