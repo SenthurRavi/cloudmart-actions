@@ -109,11 +109,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      -name: Configure AWS Credentials
+      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v5
        with:
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION }}
 
-      -name: Verify AWS Identity
+      - name: Verify AWS Identity
        run: aws sts get-caller-identity
